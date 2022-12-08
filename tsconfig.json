@@ -1,0 +1,12 @@
+{
+  "include": ["src/*.js", "test/*.js"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "lib": ["esnext"],
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true,
+    "noEmit": true,
+    "downlevelIteration": true
+  }
+}
