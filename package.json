@@ -1,0 +1,49 @@
+{
+  "name": "@linus/testy",
+  "version": "1.0.0",
+  "description": "No fuss doctests for Node.js - test your @examples",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha && eslint && tsc",
+    "doc": "jsdoc -c .jsdoc.json src test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github:linus/testy"
+  },
+  "keywords": [
+    "test",
+    "testing",
+    "tdd",
+    "bdd",
+    "jsdoc",
+    "doctest"
+  ],
+  "author": "Linus Thiel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linus/testy/issues"
+  },
+  "homepage": "https://github.com/linus/testy#readme",
+  "dependencies": {
+    "jsdoc-api": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.11.12",
+    "chai": "^4.3.7",
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jsdoc": "^39.6.4",
+    "eslint-plugin-prettier": "^4.2.1",
+    "mocha": "^10.1.0",
+    "prettier": "^2.8.1",
+    "typescript": "^4.9.4"
+  },
+  "peerDependencies": {
+    "chai": "4.x",
+    "mocha": "10.x"
+  }
+}
