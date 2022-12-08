@@ -7,7 +7,7 @@ Testy is no fuss [doctests][doctest] for Node.js. Document your code with
 ## Installation
 
 ```bash
-npm install @linus/testy
+$ npm install @linus/testy
 ```
 
 ## Usage
@@ -47,6 +47,19 @@ describe("Tests", () => testy("hello.js"));
 ```
 
 3. Run `mocha` and relax. Your code *and* your examples are tested!
+
+```bash
+$ npm test
+
+  Tests
+    hello.js
+      hello
+        ✔ hello("Mr von Neumann")
+//=> "Hello, Mr von Neumann!"
+
+
+  1 passing (6ms)
+```
 
 ## Development
 
