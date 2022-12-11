@@ -1,5 +1,7 @@
 // @ts-ignore
 import vm from "node:vm";
+// @ts-ignore
+import fs from "node:fs/promises";
 
 /**
  * @typedef {{
@@ -99,7 +101,11 @@ export function getTests(doc) {
  */
 export async function runTest(path, test) {
   const context = await import(path);
-  return vm.runInNewContext(test, context, {
-    filename: path,
-  });
+  return vm.runInNewContext(
+    test,
+    { fs, ...context },
+    {
+      filename: path,
+    }
+  );
 }
