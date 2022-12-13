@@ -4,6 +4,8 @@ Testy is no fuss [doctests][doctest] for Node.js. Document your code with
 [JSDoc][jsdoc], provide your [@example][example], and run your tests with
 [Mocha][mocha].
 
+![CI status](https://github.com/linus/testy/workflows/ci/badge.svg)
+
 ## Installation
 
 ```bash
