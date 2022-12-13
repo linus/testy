@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha && eslint && tsc",
-    "doc": "jsdoc -c .jsdoc.json src test"
+    "test": "mocha && eslint . && tsc",
+    "doc": "jsdoc -c .jsdoc.json -r src test"
   },
   "repository": {
     "type": "git",
