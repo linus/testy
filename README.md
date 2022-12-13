@@ -61,6 +61,13 @@ $ npm test
   1 passing (6ms)
 ```
 
+## Advanced
+
+Testy can handle Promises (in both examples and expected results), expected
+Errors (both thrown Errors and rejected Promises), generator functions, and
+more. Examples are in [test/spec](test/spec). This also acts as the
+specification and test suite for Testy.
+
 ## Development
 
 Testy is under active development. Pull requests are welcome:
