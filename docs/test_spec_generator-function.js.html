@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: test/spec/generator-function.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,47 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: test/spec/generator-function.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Generator functions can be tested in a number of ways
+ *
+ * @template T
+ * @param {T[]} array
+ * @yields T
+ * @example generatorFunction(["foo", "bar", "baz"]).next()
+ * // Call .next() immediately to check the first value
+ * //=> {
+ *   value: "foo",
+ *   done: false
+ * }
+ * @example Array.from(generatorFunction([42, 17]))
+ * // Consume the iterator into an array, and test that
+ * //=> [42, 17]
+ * @example
+ * // Assign the iterator to a variable and iterate as many steps as needed
+ * const it = generatorFunction(["baz", "qux"]);
+ * it.next();
+ * it.next();
+ * it.next();
+ * //=> {
+     value: undefined,
+ *   done: true
+ * }
+ */
+export function* generatorFunction(array) {
+  for (const x of array) yield x;
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

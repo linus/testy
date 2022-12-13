@@ -104,6 +104,555 @@
     
 
     
+    <h4 class="name" id="evalExpected"><span class="type-signature"></span>evalExpected<span class="signature">(path, expected, offset)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Path to the file under test</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expected</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The expected result source</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Offset</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The test source's line and column offset</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_lib.js.html">src/lib.js</a>, <a href="src_lib.js.html#line165">line 165</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The result of the evaluated test</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;any></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>evalExpected("./lib.js", "1 - 2")
+//=> -1</code></pre>
+
+    <pre class="prettyprint"><code>evalExpected("./lib.js", "throw new Error('qux')")
+//=> throw new Error("qux")</code></pre>
+
+    <pre class="prettyprint"><code>evalExpected("./lib.js", "{foo: 17, bar: 4711}")
+//=> {
+  foo: 17,
+  bar: 4711
+}</code></pre>
+
+    <pre class="prettyprint"><code>evalExpected("./lib.js", "[17, 'foo', 4711]")
+//=> [17, "foo", 4711]</code></pre>
+
+    <pre class="prettyprint"><code>evalExpected("./lib.js", "new Set([42, 17])")
+//=> new Set([42, 17])</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="exampleWithoutResult"><span class="type-signature"></span>exampleWithoutResult<span class="signature">(x)</span><span class="type-signature"> &rarr; {T}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">T</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="test_spec_example-without-result.js.html">test/spec/example-without-result.js</a>, <a href="test_spec_example-without-result.js.html#line7">line 7</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">T</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>exampleWithoutResult('foo')</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="generatorFunction"><span class="type-signature"></span>generatorFunction<span class="signature">(array)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Generator functions can be tested in a number of ways</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;T></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="test_spec_generator-function.js.html">test/spec/generator-function.js</a>, <a href="test_spec_generator-function.js.html#line27">line 27</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Yields:</h5>
+
+        
+<div class="param-desc">
+    T
+</div>
+
+
+
+    
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>generatorFunction(["foo", "bar", "baz"]).next()
+// Call .next() immediately to check the first value
+//=> {
+  value: "foo",
+  done: false
+}</code></pre>
+
+    <pre class="prettyprint"><code>Array.from(generatorFunction([42, 17]))
+// Consume the iterator into an array, and test that
+//=> [42, 17]</code></pre>
+
+    <pre class="prettyprint"><code>// Assign the iterator to a variable and iterate as many steps as needed
+const it = generatorFunction(["baz", "qux"]);
+it.next();
+it.next();
+it.next();
+//=> {
+     value: undefined,
+  done: true
+}</code></pre>
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="getTests"><span class="type-signature"></span>getTests<span class="signature">(doc)</span><span class="type-signature"> &rarr; {Array.&lt;<a href="global.html#TestDefinition">TestDefinition</a>>}</span></h4>
     
 
@@ -206,7 +755,7 @@ evaluated.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib.js.html">lib.js</a>, <a href="lib.js.html#line54">line 54</a>
+        <a href="src_lib.js.html">src/lib.js</a>, <a href="src_lib.js.html#line71">line 71</a>
     </li></ul></dd>
     
 
@@ -263,7 +812,9 @@ evaluated.</p>
   examples: ["Math.max(1, 3)\n//=> 3"],
   meta: {
     path: "/tmp",
-    filename: "index.js"
+    filename: "index.js",
+    lineno: 10,
+    columnno: 0
   },
   name: "Math.max"
 }])
@@ -271,10 +822,14 @@ evaluated.</p>
   {
     path: "/tmp/index.js",
     functionName: "Math.max",
+    offset: {
+      line: 10,
+      column: 0
+    },
     examples: [{
       test: "Math.max(1, 3)",
       example: "Math.max(1, 3)\n//=> 3",
-      result: 3
+      expected: "3"
     }]
   }
 ]</code></pre>
@@ -287,7 +842,327 @@ evaluated.</p>
     
 
     
-    <h4 class="name" id="runTest"><span class="type-signature"></span>runTest<span class="signature">(path, test)</span><span class="type-signature"> &rarr; {any}</span></h4>
+    <h4 class="name" id="rejectsPromise"><span class="type-signature"></span>rejectsPromise<span class="signature">(x)</span><span class="type-signature"> &rarr; {Promise.&lt;T>}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">T</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="test_spec_returns-promise.js.html">test/spec/returns-promise.js</a>, <a href="test_spec_returns-promise.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;T></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>rejectsPromise(17)
+//=> throw new Error(17)</code></pre>
+
+    <pre class="prettyprint"><code>rejectsPromise(17)
+//=> Promise.reject(Error(17))</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="returnsPromise"><span class="type-signature"></span>returnsPromise<span class="signature">(x)</span><span class="type-signature"> &rarr; {Promise.&lt;T>}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">T</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="test_spec_returns-promise.js.html">test/spec/returns-promise.js</a>, <a href="test_spec_returns-promise.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;T></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>returnsPromise(17)
+//=> 17</code></pre>
+
+    <pre class="prettyprint"><code>returnsPromise(17)
+//=> Promise.resolve(17)</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="runTest"><span class="type-signature"></span>runTest<span class="signature">(path, test, offset)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
     
 
     
@@ -370,6 +1245,29 @@ evaluated.</p>
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Offset</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The test source's line and column offset</p></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -407,7 +1305,7 @@ evaluated.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib.js.html">lib.js</a>, <a href="lib.js.html#line99">line 99</a>
+        <a href="src_lib.js.html">src/lib.js</a>, <a href="src_lib.js.html#line129">line 129</a>
     </li></ul></dd>
     
 
@@ -447,7 +1345,7 @@ evaluated.</p>
     </dt>
     <dd>
         
-<span class="param-type">any</span>
+<span class="param-type">Promise.&lt;any></span>
 
 
     </dd>
@@ -576,7 +1474,7 @@ using Mocha.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line13">line 13</a>
+        <a href="src_index.js.html">src/index.js</a>, <a href="src_index.js.html#line14">line 14</a>
     </li></ul></dd>
     
 
@@ -609,6 +1507,178 @@ using Mocha.</p>
     
     <pre class="prettyprint"><code>testy("src/lib.js")
 //=> undefined</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="throws"><span class="type-signature"></span>throws<span class="signature">(x)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">T</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="test_spec_expect-error.js.html">test/spec/expect-error.js</a>, <a href="test_spec_expect-error.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+    <div class="param-desc">
+    
+        
+<span class="param-type">Error.&lt;T></span>
+
+
+    
+    </div>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">undefined</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>throws(4711)
+//=> throw new Error(4711)</code></pre>
 
 
 
@@ -670,7 +1740,7 @@ using Mocha.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib.js.html">lib.js</a>, <a href="lib.js.html#line3">line 3</a>
+        <a href="src_lib.js.html">src/lib.js</a>, <a href="src_lib.js.html#line6">line 6</a>
     </li></ul></dd>
     
 
@@ -700,13 +1770,13 @@ using Mocha.</p>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#getTests">getTests</a></li><li><a href="global.html#runTest">runTest</a></li><li><a href="global.html#testy">testy</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#evalExpected">evalExpected</a></li><li><a href="global.html#exampleWithoutResult">exampleWithoutResult</a></li><li><a href="global.html#generatorFunction">generatorFunction</a></li><li><a href="global.html#getTests">getTests</a></li><li><a href="global.html#rejectsPromise">rejectsPromise</a></li><li><a href="global.html#returnsPromise">returnsPromise</a></li><li><a href="global.html#runTest">runTest</a></li><li><a href="global.html#testy">testy</a></li><li><a href="global.html#throws">throws</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Thu Dec 08 2022 21:14:58 GMT+0100 (Central European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Dec 13 2022 13:02:00 GMT+0100 (Central European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

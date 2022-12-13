@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: test/spec/returns-promise.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,43 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: test/spec/returns-promise.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @template T
+ * @param {T} x
+ * @returns {Promise&lt;T>}
+ * @example returnsPromise(17)
+ * //=> 17
+ * @example returnsPromise(17)
+ * //=> Promise.resolve(17)
+ */
+export async function returnsPromise(x) {
+  return Promise.resolve(x);
+}
 
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+/**
+ * @template {string | undefined} T
+ * @param {T} x
+ * @returns {Promise&lt;T>}
+ * @example rejectsPromise(17)
+ * //=> throw new Error(17)
+ * @example rejectsPromise(17)
+ * //=> Promise.reject(Error(17))
+ */
+export async function rejectsPromise(x) {
+  return Promise.reject(new Error(x));
+}
+</code></pre>
+        </article>
+    </section>
 
 
 
