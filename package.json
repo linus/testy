@@ -2,7 +2,10 @@
   "name": "@linus/testy",
   "version": "1.0.3",
   "description": "No fuss doctests for Node.js - test your @examples",
-  "main": "src/index.js",
+  "main": "./src/index.js",
+  "files": [
+    "/src"
+  ],
   "type": "module",
   "scripts": {
     "test": "mocha && eslint . && tsc",
