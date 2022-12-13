@@ -5,6 +5,7 @@ Testy is no fuss [doctests][doctest] for Node.js. Document your code with
 [Mocha][mocha].
 
 ![CI status](https://github.com/linus/testy/workflows/ci/badge.svg)
+![CodeQL status](https://github.com/linus/testy/workflows/CodeQL/badge.svg)
 
 ## Installation
 
