@@ -9,7 +9,7 @@
   "type": "module",
   "scripts": {
     "test": "mocha && eslint . && tsc",
-    "doc": "jsdoc -c .jsdoc.json -r src test"
+    "doc": "jsdoc -c .jsdoc.json"
   },
   "repository": {
     "type": "git",

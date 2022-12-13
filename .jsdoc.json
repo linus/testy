@@ -3,6 +3,7 @@
   "recurseDepth": 10,
   "include": ["."],
   "source": {
+    "include": ["src", "test"],
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_"
   },
@@ -16,6 +17,7 @@
     "monospaceLinks": false
   },
   "opts": {
-    "destination": "./docs"
+    "destination": "./docs",
+    "recurse": true
   }
 }
