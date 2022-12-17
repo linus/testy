@@ -103,7 +103,10 @@ export function getTests(doc) {
           name: functionName,
           examples,
         }) => {
-          const path = new URL(`${directory}/${filename}`.replaceAll("\\", "/"), "file:").pathname;
+          const path = new URL(
+            `${directory}/${filename}`.replaceAll("\\", "/"),
+            "file:"
+          ).pathname;
 
           return {
             path,
