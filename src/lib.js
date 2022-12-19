@@ -2,6 +2,7 @@
 import vm from "node:vm";
 // @ts-ignore
 import fs from "node:fs/promises";
+import { join } from "node:path";
 
 /**
  * @typedef {{
@@ -102,16 +103,12 @@ export function getTests(doc) {
           meta: { path: directory, filename, lineno: line, columnno: column },
           name: functionName,
           examples,
-        }) => {
-          const path = `${directory}/${filename}`;
-
-          return {
-            path,
-            functionName,
-            offset: { line, column },
-            examples,
-          };
-        }
+        }) => ({
+          path: join(directory, filename),
+          functionName,
+          offset: { line, column },
+          examples,
+        })
       )
   );
 }
