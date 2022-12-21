@@ -128,7 +128,7 @@ export async function runTest(
   test,
   { line: lineOffset, column: columnOffset } = { line: 0, column: 0 }
 ) {
-  const context = await import(new URL(path, import.meta.url));
+  const context = await import(new URL(path, import.meta.url).href);
   return vm.runInNewContext(
     test,
     { fs, ...context },
