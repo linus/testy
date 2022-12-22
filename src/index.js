@@ -26,13 +26,14 @@ export function testy(file) {
               evalExpected(path, result, offset),
             ]);
             if (actual.status === "rejected") {
-              // @ts-ignore
-              // If the actual status was rejected, we assume so was expected.
-              // Otherwise, it's a test failure
-              expect(actual.reason).to.eql(expected.reason);
-            } else {
-              // @ts-ignore
+              // If the example was rejected, and that's unexpected, then we should notify someone
+              if (expected.status !== "rejected") throw actual.reason;
+              // Else - Aha! We expected this! Make sure it's identical:
+              else expect(actual.reason).to.eql(expected.reason);
+            } else if (expected.status === "fulfilled") {
               expect(actual.value).to.eql(expected.value);
+            } else {
+              expect(actual.value).to.eql(expected.reason);
             }
           });
         }
