@@ -3,6 +3,8 @@
   "exclude": ["node_modules"],
   "compilerOptions": {
     "lib": ["esnext"],
+    "module": "esnext",
+    "skipLibCheck": true,
     "allowJs": true,
     "checkJs": true,
     "strict": true,
