@@ -1,6 +1,6 @@
 {
   "name": "@linus/testy",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "No fuss doctests for Node.js - test your @examples",
   "main": "./src/index.js",
   "files": [
@@ -29,6 +29,9 @@
     "url": "https://github.com/linus/testy/issues"
   },
   "homepage": "https://github.com/linus/testy#readme",
+  "engines": {
+    "node": ">=16"
+  },
   "dependencies": {
     "jsdoc-api": "^8.0.0"
   },
