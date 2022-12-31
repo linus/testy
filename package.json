@@ -29,6 +29,9 @@
     "url": "https://github.com/linus/testy/issues"
   },
   "homepage": "https://github.com/linus/testy#readme",
+  "engines": {
+    "node": ">=16"
+  },
   "dependencies": {
     "jsdoc-api": "^8.0.0"
   },
