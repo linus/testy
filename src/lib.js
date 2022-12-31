@@ -118,6 +118,7 @@ export function getTests(doc) {
  * @param {string} path Path to the file under test
  * @param {string} test The test source
  * @param {Offset} offset The test source's line and column offset
+ * @param {any=} context The test context (the module under test)
  * @returns {Promise.<any>} The result of the evaluated test
  * @example runTest("src/lib.js", "1 - 2")
  * //=> -1
@@ -127,9 +128,10 @@ export function getTests(doc) {
 export async function runTest(
   path,
   test,
-  { line: lineOffset, column: columnOffset } = { line: 0, column: 0 }
+  { line: lineOffset, column: columnOffset } = { line: 0, column: 0 },
+  context
 ) {
-  const context = await import(pathToFileURL(resolve(path)).href);
+  context = context ?? (await import(pathToFileURL(resolve(path)).href));
   return vm.runInNewContext(
     test,
     { fs, ...context },

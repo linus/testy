@@ -2,6 +2,7 @@
 import jsdoc from "jsdoc-api";
 import { expect } from "chai";
 import { evalExpected, getTests, runTest } from "./lib.js";
+import { pathToFileURL } from "url";
 
 /**
  * The main entry point. Call it with the path to the file to test, and run it
@@ -18,11 +19,17 @@ export function testy(file) {
 
   describe(file, () => {
     for (const { path, functionName, offset, examples } of tests) {
+      /** @type {any} */
+      let context;
+      before(async () => {
+        context = await import(pathToFileURL(path).href);
+      });
+
       describe(functionName, () => {
         for (const { test, example, expected: result } of examples) {
           it(example, async () => {
             const [actual, expected] = await Promise.allSettled([
-              runTest(path, test, offset),
+              runTest(path, test, offset, context),
               evalExpected(path, result, offset),
             ]);
             if (actual.status === "rejected") {
