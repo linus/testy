@@ -2,7 +2,8 @@
 import vm from "node:vm";
 // @ts-ignore
 import fs from "node:fs/promises";
-import { join } from "node:path";
+import { posix, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 
 /**
  * @typedef {{
@@ -104,7 +105,7 @@ export function getTests(doc) {
           name: functionName,
           examples,
         }) => ({
-          path: join(directory, filename),
+          path: posix.join(directory, filename),
           functionName,
           offset: { line, column },
           examples,
@@ -118,9 +119,9 @@ export function getTests(doc) {
  * @param {string} test The test source
  * @param {Offset} offset The test source's line and column offset
  * @returns {Promise.<any>} The result of the evaluated test
- * @example runTest("./lib.js", "1 - 2")
+ * @example runTest("src/lib.js", "1 - 2")
  * //=> -1
- * @example runTest("./lib.js", "runTest('./lib.js', '1 + 2')")
+ * @example runTest("src/lib.js", "runTest('src/lib.js', '1 + 2')")
  * //=> 3
  */
 export async function runTest(
@@ -128,7 +129,7 @@ export async function runTest(
   test,
   { line: lineOffset, column: columnOffset } = { line: 0, column: 0 }
 ) {
-  const context = await import(new URL(path, import.meta.url).href);
+  const context = await import(pathToFileURL(resolve(path)).href);
   return vm.runInNewContext(
     test,
     { fs, ...context },
@@ -145,18 +146,18 @@ export async function runTest(
  * @param {string} expected The expected result source
  * @param {Offset} offset The test source's line and column offset
  * @returns {Promise.<any>} The result of the evaluated test
- * @example evalExpected("./lib.js", "1 - 2")
+ * @example evalExpected("src/lib.js", "1 - 2")
  * //=> -1
- * @example evalExpected("./lib.js", "throw new Error('qux')")
+ * @example evalExpected("src/lib.js", "throw new Error('qux')")
  * //=> throw new Error("qux")
- * @example evalExpected("./lib.js", "{foo: 17, bar: 4711}")
+ * @example evalExpected("src/lib.js", "{foo: 17, bar: 4711}")
  * //=> {
  *   foo: 17,
  *   bar: 4711
  * }
- * @example evalExpected("./lib.js", "[17, 'foo', 4711]")
+ * @example evalExpected("src/lib.js", "[17, 'foo', 4711]")
  * //=> [17, "foo", 4711]
- * @example evalExpected("./lib.js", "new Set([42, 17])")
+ * @example evalExpected("src/lib.js", "new Set([42, 17])")
  * //=> new Set([42, 17])
  */
 export async function evalExpected(
