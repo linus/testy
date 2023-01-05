@@ -19,4 +19,10 @@ describe("Specification", () => {
   describe("Examples without a result are not tested", () => {
     testy("test/spec/example-without-result.js");
   });
+  describe("Sample passing module (@supabase/doctest-js)", () => {
+    testy("test/spec/sample-passing-module.js");
+  });
+  describe("Sample passing class (@supabase/doctest-js)", () => {
+    testy("test/spec/sample-passing-class.js");
+  });
 });
