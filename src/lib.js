@@ -14,7 +14,8 @@ import { pathToFileURL } from "node:url";
  *     lineno: number,
  *     columnno: number
  *   },
- *   name: string
+ *   name: string,
+ *   longname: string | undefined
  * }} Doclet
  *
  * @typedef {{
@@ -102,11 +103,12 @@ export function getTests(doc) {
       .map(
         ({
           meta: { path: directory, filename, lineno: line, columnno: column },
-          name: functionName,
+          name,
+          longname,
           examples,
         }) => ({
           path: posix.join(directory, filename),
-          functionName,
+          functionName: longname ?? name,
           offset: { line, column },
           examples,
         })
