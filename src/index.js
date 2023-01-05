@@ -18,13 +18,13 @@ export function testy(file) {
   const tests = getTests(doc);
 
   describe(file, () => {
-    for (const { path, functionName, offset, examples } of tests) {
-      /** @type {any} */
-      let context;
-      before(async () => {
-        context = await import(pathToFileURL(path).href);
-      });
+    /** @type {any} */
+    let context;
+    before(async () => {
+      context = await importPath(file);
+    });
 
+    for (const { path, functionName, offset, examples } of tests) {
       describe(functionName, () => {
         for (const { test, example, expected: result } of examples) {
           it(example, async () => {

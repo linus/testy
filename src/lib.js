@@ -133,7 +133,7 @@ export async function runTest(
   { line: lineOffset, column: columnOffset } = { line: 0, column: 0 },
   context
 ) {
-  context = context ?? (await import(pathToFileURL(resolve(path)).href));
+  context = context ?? (await importPath(path));
   return vm.runInNewContext(
     test,
     { fs, ...context },
@@ -177,4 +177,11 @@ export async function evalExpected(
     lineOffset,
     columnOffset,
   });
+}
+
+/**
+ * @param {string} path
+ */
+export async function importPath(path) {
+  return await import(pathToFileURL(resolve(path)).href);
 }
