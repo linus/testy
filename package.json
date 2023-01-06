@@ -1,6 +1,6 @@
 {
   "name": "@linus/testy",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "No fuss doctests for Node.js - test your @examples",
   "main": "./src/index.js",
   "files": [
