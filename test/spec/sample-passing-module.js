@@ -2,8 +2,9 @@
 
 /**
  * Returns a word with all letter downcases except the first letter
+ *
  * @param {string} word - The word to be titleized
- * @return {string} The string titlelized
+ * @returns {string} The string titlelized
  * @example
  * titleize('wOaH')
  * //=> 'Woah'
@@ -24,8 +25,9 @@ export function titleize(word) {
 
 /**
  * Returns fairly unnecessary and uninteresting information about a string
+ *
  * @param {string} string - The string of disinterest
- * @return {object} Useless information
+ * @returns {object} Useless information
  * @example
  * stringData(
  *   'woah'
@@ -52,9 +54,10 @@ export function stringData(string) {
 
 /**
  * Does the same thing as String.prototype.split
+ *
  * @param {string} string - The string you should be using .split on
  * @param {string} delimiter - The arg you would pass to .split
- * @return {string[]} The exact same thing .splt would return
+ * @returns {string[]} The exact same thing .splt would return
  * @example
  * split('why am i doing this?', ' ')
  * //=> [ 'why', 'am', 'i', 'doing', 'this?' ]
@@ -64,8 +67,9 @@ export function split(string, delimiter) {
 }
 
 /**
- * @param {number} a
- * @param {number} b
+ * @param {number} a A number
+ * @param {number} b Another number
+ * @returns {number} The sum of a and b
  * @example add(1, 2)
  * //=> 3
  * @example add(3, 4)
@@ -79,10 +83,10 @@ export function add(a, b) {
 
 /**
  * Github Issue: https://github.com/supabase/doctest-js/issues/1
- * @param {Object<string, string>} obj
- * @private
- * @returns {string}
  *
+ * @param {Object<string, string>} obj An object with strings
+ * @private
+ * @returns {string} Returns the strings in obj as a query string
  * @example objectToQueryString({
  *  param1: 'hello',
  *  param2: 'world'
@@ -103,8 +107,7 @@ export function objectToQueryString(obj) {
  * @param {Column[]} columns All of the columns
  * @param {string[]} records The map of string values
  * @param {string[]} skipTypes An array of types that should not be converted
- * @returns {string | number}
- *
+ * @returns {string | number} The value of the column named `columnName`
  * @example convertColumn(
  *  'age',
  *  [{name: 'first_name', type: 'text'}, {name: 'age', type: 'int4'}],
@@ -128,14 +131,18 @@ export const convertColumn = (columnName, columns, records, skipTypes) => {
   // @ts-ignore
   else return convertCell(column.type, records[columnNum]);
 
-  function noop(/** @type {string} */ val) {
+  /**
+   * @param {string} val A value
+   * @returns {string} The value
+   */
+  function noop(val) {
     return val;
   }
 
   /**
-   * @param {string} _type
-   * @param {string} val
-   * @returns {number}
+   * @param {string} _type Column type
+   * @param {string} val Column value
+   * @returns {number} The column value as a number
    */
   function convertCell(_type, val) {
     return parseInt(val);

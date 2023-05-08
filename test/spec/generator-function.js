@@ -2,7 +2,7 @@
  * Generator functions can be tested in a number of ways
  *
  * @template T
- * @param {T[]} values
+ * @param {T[]} values An array of values to yield
  * @yields T
  * @example generateValues(["foo", "bar", "baz"]).next()
  * // Call .next() immediately to check the first value
@@ -31,7 +31,7 @@ export function* generateValues(values) {
 /**
  * Here's old Fibonacci
  *
- * @param {number[]} start
+ * @param {number[]} start A tuple of starting points (defaults to [0, 1])
  * @yields {number}
  * @example fibonacci().next().value
  * //=> 0
