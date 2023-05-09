@@ -1,6 +1,4 @@
-// @ts-ignore
 import vm from "node:vm";
-// @ts-ignore
 import fs from "node:fs/promises";
 import { posix, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
