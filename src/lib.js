@@ -1,6 +1,4 @@
-// @ts-ignore
 import vm from "node:vm";
-// @ts-ignore
 import fs from "node:fs/promises";
 import { posix, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
@@ -17,18 +15,15 @@ import { pathToFileURL } from "node:url";
  *   name: string,
  *   longname: string | undefined
  * }} Doclet
- *
  * @typedef {{
  *   line: number,
  *   column: number
  * }} Offset
- *
  * @typedef {{
  *   test: string,
  *   example: string,
  *   expected: string
  * }} Example
- *
  * @typedef {{
  *   path: string,
  *   functionName: string,
@@ -121,7 +116,7 @@ export function getTests(doc) {
  * @param {string} test The test source
  * @param {Offset} offset The test source's line and column offset
  * @param {any=} context The test context (the module under test)
- * @returns {Promise.<any>} The result of the evaluated test
+ * @returns {Promise<any>} The result of the evaluated test
  * @example runTest("src/lib.js", "1 - 2")
  * //=> -1
  * @example runTest("src/lib.js", "runTest('src/lib.js', '1 + 2')")
@@ -149,7 +144,7 @@ export async function runTest(
  * @param {string} path Path to the file under test
  * @param {string} expected The expected result source
  * @param {Offset} offset The test source's line and column offset
- * @returns {Promise.<any>} The result of the evaluated test
+ * @returns {Promise<any>} The result of the evaluated test
  * @example evalExpected("src/lib.js", "1 - 2")
  * //=> -1
  * @example evalExpected("src/lib.js", "throw new Error('qux')")
@@ -180,7 +175,7 @@ export async function evalExpected(
 }
 
 /**
- * @param {string} path
+ * @param {string} path Path to import
  */
 export async function importPath(path) {
   return await import(pathToFileURL(resolve(path)).href);

@@ -8,8 +8,7 @@ import { evalExpected, getTests, runTest, importPath } from "./lib.js";
  * using Mocha.
  *
  * @typedef {{instance: any}} Options
- *
- * @param {string} file
+ * @param {string} file Path to the file under test
  * @example testy("src/lib.js")
  */
 export function testy(file) {

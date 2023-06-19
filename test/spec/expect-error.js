@@ -1,6 +1,6 @@
 /**
  * @template {string | undefined} T
- * @param {T} x
+ * @param {T} x A parameter
  * @returns {undefined}
  * @throws {Error<T>}
  * @example throws(4711)

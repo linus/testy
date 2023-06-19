@@ -9,6 +9,7 @@
     "checkJs": true,
     "strict": true,
     "noEmit": true,
+    "esModuleInterop": true,
     "downlevelIteration": true
   }
 }
