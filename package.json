@@ -1,6 +1,6 @@
 {
   "name": "@linus/testy",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "No fuss doctests for Node.js - test your @examples",
   "main": "./src/index.js",
   "files": [
@@ -36,17 +36,17 @@
     "jsdoc-api": "^8.0.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.4",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.12",
-    "chai": "^4.3.7",
-    "eslint": "^8.29.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-jsdoc": "^39.6.4",
+    "@types/chai": "^4.3.16",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^18.19.33",
+    "chai": "^4.4.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-jsdoc": "^39.9.1",
     "eslint-plugin-prettier": "^4.2.1",
-    "mocha": "^10.1.0",
-    "prettier": "^2.8.1",
-    "typescript": "^4.9.4"
+    "mocha": "^10.4.0",
+    "prettier": "^2.8.8",
+    "typescript": "^4.9.5"
   },
   "peerDependencies": {
     "chai": "4.x",
