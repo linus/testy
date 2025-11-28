@@ -2,7 +2,6 @@
 
 /**
  * Returns a word with all letter downcases except the first letter
- *
  * @param {string} word - The word to be titleized
  * @returns {string} The string titlelized
  * @example
@@ -25,7 +24,6 @@ export function titleize(word) {
 
 /**
  * Returns fairly unnecessary and uninteresting information about a string
- *
  * @param {string} string - The string of disinterest
  * @returns {object} Useless information
  * @example
@@ -43,7 +41,7 @@ export function stringData(string) {
     .toLowerCase()
     .split("")
     .filter((char) =>
-      ["a", "e", "i", "o", "u", "y"].find((v) => char === v)
+      ["a", "e", "i", "o", "u", "y"].find((v) => char === v),
     ).length;
   return {
     vowels,
@@ -54,7 +52,6 @@ export function stringData(string) {
 
 /**
  * Does the same thing as String.prototype.split
- *
  * @param {string} string - The string you should be using .split on
  * @param {string} delimiter - The arg you would pass to .split
  * @returns {string[]} The exact same thing .splt would return
@@ -83,7 +80,6 @@ export function add(a, b) {
 
 /**
  * Github Issue: https://github.com/supabase/doctest-js/issues/1
- *
  * @param {Object<string, string>} obj An object with strings
  * @private
  * @returns {string} Returns the strings in obj as a query string

@@ -37,7 +37,6 @@ import { pathToFileURL } from "node:url";
  * evaluated.
  *
  * [doclet]: https://jsdoc.app/about-plugins.html#event-newdoclet
- *
  * @param {Doclet[]} doc The doclet from the file under test
  * @returns {TestDefinition[]} The test definitions parsed from the doclet, if any
  * @example getTests([{
@@ -85,7 +84,7 @@ export function getTests(doc) {
           })
           .filter(
             ({ test, expected }) =>
-              typeof test === "string" && typeof expected === "string"
+              typeof test === "string" && typeof expected === "string",
           );
 
         return {
@@ -106,7 +105,7 @@ export function getTests(doc) {
           functionName: longname ?? name,
           offset: { line, column },
           examples,
-        })
+        }),
       )
   );
 }
@@ -126,7 +125,7 @@ export async function runTest(
   path,
   test,
   { line: lineOffset, column: columnOffset } = { line: 0, column: 0 },
-  context
+  context,
 ) {
   context = context ?? (await importPath(path));
   return vm.runInNewContext(
@@ -136,7 +135,7 @@ export async function runTest(
       filename: path,
       lineOffset,
       columnOffset,
-    }
+    },
   );
 }
 
@@ -162,7 +161,7 @@ export async function runTest(
 export async function evalExpected(
   path,
   expected,
-  { line: lineOffset, column: columnOffset } = { line: 0, column: 0 }
+  { line: lineOffset, column: columnOffset } = { line: 0, column: 0 },
 ) {
   const source = expected.startsWith("throw ")
     ? `{${expected}}`
@@ -176,6 +175,7 @@ export async function evalExpected(
 
 /**
  * @param {string} path Path to import
+ * @returns {Promise<any>} The imported module
  */
 export async function importPath(path) {
   return await import(pathToFileURL(resolve(path)).href);
