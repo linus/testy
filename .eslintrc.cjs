@@ -5,7 +5,7 @@ module.exports = {
   },
   extends: [
     "prettier", // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
-    "plugin:jsdoc/recommended",
+    "plugin:jsdoc/recommended-typescript-flavor",
   ],
   plugins: ["jsdoc", "prettier"],
   rules: {
