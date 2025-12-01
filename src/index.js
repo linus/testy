@@ -2,6 +2,7 @@
 import jsdoc from "jsdoc-api";
 import { expect } from "chai";
 import { evalExpected, getTests, runTest, importPath } from "./lib.js";
+import { describe, it, before } from "node:test";
 
 /**
  * The main entry point. Call it with the path to the file to test, and run it

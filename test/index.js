@@ -1,4 +1,5 @@
 import { testy } from "../src/index.js";
+import { describe } from "node:test";
 
 // Let Testy test Testy - Quis probiet ipsos probates?
 describe("Testy", () => {

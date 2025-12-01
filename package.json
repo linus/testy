@@ -8,12 +8,12 @@
   ],
   "type": "module",
   "scripts": {
-    "test": "mocha && eslint . && tsc",
+    "test": "node --test && eslint . && tsc",
     "doc": "jsdoc -c .jsdoc.json"
   },
   "repository": {
     "type": "git",
-    "url": "github:linus/testy"
+    "url": "git+https://github.com/linus/testy.git"
   },
   "keywords": [
     "test",
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/linus/testy#readme",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "dependencies": {
     "jsdoc-api": "^8.1.1"
@@ -44,12 +44,10 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsdoc": "^51.4.1",
     "eslint-plugin-prettier": "^5.5.4",
-    "mocha": "^11.7.5",
     "prettier": "^3.7.1",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
-    "chai": "6.x",
-    "mocha": "11.x"
+    "chai": "6.x"
   }
 }
