@@ -1,7 +1,8 @@
 // @ts-ignore
 import jsdoc from "jsdoc-api";
-import { expect } from "chai";
 import { evalExpected, getTests, runTest, importPath } from "./lib.js";
+import { describe, it, before } from "node:test";
+import assert from "node:assert";
 
 /**
  * The main entry point. Call it with the path to the file to test, and run it
@@ -33,11 +34,11 @@ export function testy(file) {
               // If the example was rejected, and that's unexpected, then we should notify someone
               if (expected.status !== "rejected") throw actual.reason;
               // Else - Aha! We expected this! Make sure it's identical:
-              else expect(actual.reason).to.eql(expected.reason);
+              else assert.deepEqual(actual.reason, expected.reason);
             } else if (expected.status === "fulfilled") {
-              expect(actual.value).to.eql(expected.value);
+              assert.deepEqual(actual.value, expected.value);
             } else {
-              expect(actual.value).to.eql(expected.reason);
+              assert.deepEqual(actual.value, expected.reason);
             }
           });
         }
