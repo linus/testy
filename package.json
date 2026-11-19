@@ -32,9 +32,6 @@
   "engines": {
     "node": ">=22"
   },
-  "dependencies": {
-    "jsdoc-api": "^9.3.6"
-  },
   "devDependencies": {
     "@types/node": "^24.10.1",
     "eslint": "^10.15.0",
@@ -43,5 +40,8 @@
     "eslint-plugin-prettier": "^5.5.7",
     "prettier": "^3.10.1",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "jsdoc": "^4.0.5"
   }
 }

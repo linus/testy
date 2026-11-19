@@ -1,7 +1,13 @@
 import vm from "node:vm";
 import fs from "node:fs/promises";
+import { execFile } from "node:child_process";
+import { createRequire } from "node:module";
 import { posix, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
+import { promisify } from "node:util";
+
+const execFileAsync = promisify(execFile);
+const jsdocPath = createRequire(import.meta.url).resolve("jsdoc/jsdoc.js");
 
 /**
  * @typedef {{
@@ -31,6 +37,23 @@ import { pathToFileURL } from "node:url";
  *   examples: Example[]
  * }} TestDefinition
  */
+
+/**
+ * Run `jsdoc --explain` on a file and return its doclets. `execFile` settles
+ * once the output streams of the jsdoc process have closed, so the output is
+ * always complete.
+ * @param {string} file Path to the file under test
+ * @returns {Promise<Doclet[]>} The doclets from the file under test
+ */
+export async function explain(file) {
+  const { stdout } = await execFileAsync(
+    process.execPath,
+    [jsdocPath, "--explain", file],
+    { maxBuffer: Infinity },
+  );
+
+  return JSON.parse(stdout);
+}
 
 /**
  * Map a [doclet][doclet] to a list of test definitions with their results
