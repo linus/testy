@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error jsdoc-api does not ship type declarations
 import jsdoc from "jsdoc-api";
 import { evalExpected, getTests, runTest, importPath } from "./lib.js";
 import { describe, it, before } from "node:test";
