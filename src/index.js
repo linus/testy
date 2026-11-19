@@ -1,6 +1,4 @@
-// @ts-expect-error jsdoc-api does not ship type declarations
-import jsdoc from "jsdoc-api";
-import { evalExpected, getTests, runTest, importPath } from "./lib.js";
+import { evalExpected, explain, getTests, runTest, importPath } from "./lib.js";
 import { describe, it, before } from "node:test";
 import assert from "node:assert";
 
@@ -12,7 +10,7 @@ import assert from "node:assert";
  */
 export function testy(file) {
   describe(file, async () => {
-    const doc = await jsdoc.explain({ files: [file] });
+    const doc = await explain(file);
     const tests = getTests(doc);
 
     /** @type {any} */
