@@ -122,9 +122,9 @@ export function objectToQueryString(obj) {
 export const convertColumn = (columnName, columns, records, skipTypes) => {
   let column = columns.find((x) => x.name == columnName);
   let columnNum = columns.findIndex((x) => x.name == columnName);
-  // @ts-ignore
+  // @ts-expect-error column is possibly undefined
   if (skipTypes.includes(column.type)) return noop(records[columnNum]);
-  // @ts-ignore
+  // @ts-expect-error column is possibly undefined
   else return convertCell(column.type, records[columnNum]);
 
   /**
