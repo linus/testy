@@ -1,8 +1,8 @@
 # 🧪 Testy
 
 Testy is no fuss [doctests][doctest] for Node.js. Document your code with
-[JSDoc][jsdoc], provide your [@example][example], and run your tests with
-[Mocha][mocha].
+[JSDoc][jsdoc], provide your [@example][example], and run your tests with the
+built-in [Node.js test runner][node-test].
 
 ![CI status](https://github.com/linus/testy/workflows/CI/badge.svg)
 ![CodeQL status](https://github.com/linus/testy/workflows/CodeQL/badge.svg)
@@ -12,6 +12,8 @@ Testy is no fuss [doctests][doctest] for Node.js. Document your code with
 ```bash
 $ npm install @linus/testy
 ```
+
+Testy requires Node.js 22 or later.
 
 ## Usage
 
@@ -37,32 +39,46 @@ default export. Only named exports work. The expected result **must** be
 prefixed with the string `//=>` on the beginning of a new line, after the
 example code.
 
-2. To execute the test, add a file which is discovered by Mocha (e.g. in a
-`tests/` directory), and call `testy` with the path to the file to be tested:
+2. To execute the test, add a file which is discovered by the Node.js test
+runner (e.g. `test/hello.test.js`), and call `testy` with the path to the file
+to be tested, relative to the directory you run the tests from:
 
 ```js
 import { testy } from "@linus/testy";
 
-/**
- * A test
- */
-describe("Tests", () => testy("hello.js"));
+testy("hello.js");
 ```
 
-3. Run `mocha` and relax. Your code *and* your examples are tested!
+You can group several files using `describe` from `node:test`:
+
+```js
+import { describe } from "node:test";
+import { testy } from "@linus/testy";
+
+describe("Tests", () => {
+  testy("hello.js");
+  testy("goodbye.js");
+});
+```
+
+3. Run `node --test` and relax. Your code *and* your examples are tested!
 
 ```bash
-$ npm test
-
-  Tests
-    hello.js
-      hello
-        ✔ hello("Mr von Neumann")
-//=> "Hello, Mr von Neumann!"
-
-
-  1 passing (6ms)
+$ node --test
+▶ hello.js
+  ▶ hello
+    ✔ hello("Mr von Neumann")
+//=> "Hello, Mr von Neumann!" (1.090584ms)
+  ✔ hello (1.345083ms)
+✔ hello.js (2.219375ms)
+ℹ tests 1
+ℹ suites 2
+ℹ pass 1
+ℹ fail 0
 ```
+
+**Note**: Testy registers its tests with `node:test`, so it does not work with
+other test runners such as Mocha or Jest.
 
 ## Advanced
 
@@ -116,4 +132,4 @@ THIS SOFTWARE.
 [doctest]: https://docs.python.org/3/library/doctest.html
 [jsdoc]: https://jsdoc.app/
 [example]: https://jsdoc.app/tags-example.html
-[mocha]: https://mochajs.org/
+[node-test]: https://nodejs.org/api/test.html

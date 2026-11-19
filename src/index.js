@@ -6,7 +6,7 @@ import assert from "node:assert";
 
 /**
  * The main entry point. Call it with the path to the file to test, and run it
- * using Mocha.
+ * using the Node.js test runner (`node --test`).
  * @param {string} file Path to the file under test
  * @example testy("src/lib.js")
  */
