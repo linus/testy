@@ -11,11 +11,10 @@ import assert from "node:assert";
  * @example testy("src/lib.js")
  */
 export function testy(file) {
-  const doc = jsdoc.explainSync({ files: [file] });
+  describe(file, async () => {
+    const doc = await jsdoc.explain({ files: [file] });
+    const tests = getTests(doc);
 
-  const tests = getTests(doc);
-
-  describe(file, () => {
     /** @type {any} */
     let context;
     before(async () => {
